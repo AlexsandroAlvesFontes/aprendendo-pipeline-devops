@@ -4,6 +4,23 @@ Bem-vindo à nossa oficina prática de DevOps! Hoje você vai aprender como auto
 
 Nossa aplicação é uma Calculadora Interativa que muda de cor. Vamos garantir que nenhuma alteração quebrada ou insegura chegue ao usuário final!
 
+--
+
+## Antes de Começar: Preparando o seu Ambiente (Usando este respositório como Template)
+
+Para realizar esta prática, você precisa gerar uma cópia deste repositório na sua conta do GitHub e abrir o seu próprio ambiente virtual. Siga os passos abaixo:
+
+1. **Fazer o Fork (Criar sua Cópia):** 
+   * No topo desta página do GitHub (no canto superior direito), clique no botão **Fork**.
+   * Na tela seguinte, certifique-se de que a sua conta pessoal está selecionada e clique no botão verde **Create Fork**. Isso criará uma cópia idêntica deste projeto dentro do seu perfil.
+
+2. **Abrir o Codespaces:**
+   * Agora que você está na página do *seu* repositório clonado, clique no botão verde **<> Code**.
+   * Acesse a aba **Codespaces** e clique no botão azul **Create codespace on main** (ou *master*).
+   * Uma nova aba do navegador será aberta simulando o VS Code na nuvem. O ambiente levará cerca de 1 a 2 minutos carregando porque ele está instalando o Node.js, os navegadores e as ferramentas de segurança automaticamente em segundo plano para você!
+
+---ce
+
 ---
 
 ## O Fluxo da nossa Esteira (Pipeline)
