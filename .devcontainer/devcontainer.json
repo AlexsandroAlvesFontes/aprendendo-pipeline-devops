@@ -1,0 +1,8 @@
+{
+  "name": "Ambiente de DevOps da Aula",
+  "image": "://microsoft.com",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "postCreateCommand": "npm install && sudo npx playwright install-deps && npx playwright install chromium"
+}
