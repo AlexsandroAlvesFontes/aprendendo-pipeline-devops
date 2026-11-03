@@ -1,0 +1,23 @@
+{
+  "name": "aprendendo-pipeline-devops",
+  "version": "1.0.0",
+  "description": "Primeiros passos no pipleline devops",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carolinagomes-unifacear/aprendendo-pipeline-devops.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/carolinagomes-unifacear/aprendendo-pipeline-devops/issues"
+  },
+  "homepage": "https://github.com/carolinagomes-unifacear/aprendendo-pipeline-devops#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.6"
+  }
+}
