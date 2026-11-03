@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora DevOps Interativa</title>
+    <style>
+        :root {
+            --bg-color: #2c3e50;
+            --calc-bg: #34495e;
+            --text-color: #ffffff;
+            --btn-color: #7f8c8d;
+            --btn-hover: #95a5a6;
+            --accent-color: #e67e22;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.5s ease;
+        }
+
+        .controls {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .controls select {
+            padding: 8px 12px;
+            border-radius: 5px;
+            border: none;
+            background-color: #fff;
+            color: #333;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .calculator {
+            background-color: var(--calc-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
+            width: 300px;
+        }
+
+        #display {
+            width: 100%;
+            height: 50px;
+            background-color: #222;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            color: #fff;
+            font-size: 1.5rem;
+            text-align: right;
+            padding: 5px 10px;
+            box-sizing: border-box;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: var(--btn-color);
+            color: white;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: var(--btn-hover);
+        }
+
+        button.operator {
+            background-color: var(--accent-color);
+        }
+
+        button.clear {
+            background-color: #c0392b;
+            grid-column: span 2;
+        }
+        
+        button.equal {
+            background-color: #27ae60;
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <label for="theme-select">🎨 Escolha a Cor:</label>
+        <select id="theme-select" onchange="mudarCor()">
+            <option value="padrao">Azul Escuro (Padrão)</option>
+            <option value="neon">Verde Cyberpunk</option>
+            <option value="sunset">Rosa Sunset</option>
+            <option value="dark">Preto Minimalista</option>
+        </select>
+    </div>
+
+    <!-- H1 principal que usaremos como âncora no teste do Playwright -->
+    <h1 id="titulo-pagina" style="display: none;">Calculadora Pronta</h1>
+
+    <div class="calculator">
+        <input type="text" id="display" readonly placeholder="0">
+        <div class="buttons">
+            <button class="clear" onclick="limpar()">C</button>
+            <button class="operator" onclick="adicionar('/')">/</button>
+            <button class="operator" onclick="adicionar('*')">×</button>
+            
+            <button onclick="adicionar('7')">7</button>
+            <button onclick="adicionar('8')">8</button>
+            <button onclick="adicionar('9')">9</button>
+            <button class="operator" onclick="adicionar('-')">-</button>
+            
+            <button onclick="adicionar('4')">4</button>
+            <button onclick="adicionar('5')">5</button>
+            <button onclick="adicionar('6')">6</button>
+            <button class="operator" onclick="adicionar('+')">+</button>
+            
+            <button onclick="adicionar('1')">1</button>
+            <button onclick="adicionar('2')">2</button>
+            <button onclick="adicionar('3')">3</button>
+            <button class="equal" id="btn-calcular" onclick="calcular()">=</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById('display');
+        const root = document.documentElement;
+
+        function adicionar(valor) {
+            display.value += valor;
+        }
+
+        function limpar() {
+            display.value = '';
+        }
+
+        function calcular() {
+            try {
+                // Avalia a expressão matemática de forma simples para a demo
+                if(display.value) {
+                    display.value = eval(display.value);
+                }
+            } catch (error) {
+                display.value = 'Erro';
+            }
+        }
+
+        function mudarCor() {
+            const tema = document.getElementById('theme-select').value;
+            
+            if (tema === 'padrao') {
+                root.style.setProperty('--bg-color', '#2c3e50');
+                root.style.setProperty('--calc-bg', '#34495e');
+                root.style.setProperty('--accent-color', '#e67e22');
+            } else if (tema === 'neon') {
+                root.style.setProperty('--bg-color', '#0f172a');
+                root.style.setProperty('--calc-bg', '#1e293b');
+                root.style.setProperty('--accent-color', '#06b6d4');
+            } else if (tema === 'sunset') {
+                root.style.setProperty('--bg-color', '#4c1d95');
+                root.style.setProperty('--calc-bg', '#6d28d9');
+                root.style.setProperty('--accent-color', '#f43f5e');
+            } else if (tema === 'dark') {
+                root.style.setProperty('--bg-color', '#1a1a1a');
+                root.style.setProperty('--calc-bg', '#2d2d2d');
+                root.style.setProperty('--accent-color', '#555555');
+            }
+        }
+    </script>
+</body>
+</html>
