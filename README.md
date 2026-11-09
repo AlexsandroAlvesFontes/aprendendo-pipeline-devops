@@ -19,7 +19,6 @@ Para realizar esta prática, você precisa gerar uma cópia deste repositório n
    * Acesse a aba **Codespaces** e clique no botão azul **Create codespace on main** (ou *master*).
    * Uma nova aba do navegador será aberta simulando o VS Code na nuvem. O ambiente levará cerca de 1 a 2 minutos carregando porque ele está instalando o Node.js, os navegadores e as ferramentas de segurança automaticamente em segundo plano para você!
 
----ce
 
 ---
 
